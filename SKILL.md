@@ -2,7 +2,7 @@
 name: drug-sales
 slug: drug-sales
 displayName: 医药行业·院内处方销售执行
-version: 1.0.0
+version: 1.1.0
 author: zhouwei <WeChat: Shanyue0920>
 summary: 院内处方药品销售执行结构化分析与落地。7维覆盖客户与终端管理/区域规划与指标运营/专业拜访与学术推广执行/纯销与商业渠道/POA与学术活动管理/合规行为红线/数据驱动与SFE。严格边界(训练内容归drug-training、编制人效归drug-hr、合规红线与MLR归drug-compliance、医学证据归drug-medical-postlaunch)。引用 drug-base 底座，强制数据校准(🔍/💭)。
 license: MIT
@@ -92,11 +92,11 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 ### 维S1 客户与终端管理 → `references/sales-customer-territory.md`
 关键动作：医院分级（核心/潜力/空白，按销量+学术影响力）→ 绘制 KOL 地图（处方决策者/影响者/执行者）→ 科室覆盖计划（按患者流与处方路径）→ 准入后承接（进院后首方/首科突破）。
 
-### 维S2 区域规划与指标运营 → `references/sales-territory-operation.md`
-关键动作：指标按"历史基线×增长系数×产品生命周期×区域潜力"拆解到代表/医院/季度 → 区域漏斗（覆盖数→有效拜访→观念渗透→处方启动→纯销转化）→ 资源（预算/样品/学术活动）按 ROI 分配 → 达成追踪周/月报。
+### 维S2 区域规划与指标运营 → `references/sales-territory-operation.md`（模板见该文 S2.4 指标拆解表/S2.6 区域漏斗诊断表/S2.7 POA表；过程管理·DM带教见 `references/sales-coaching-fieldwork.md`）
+关键动作：指标按"历史基线×增长系数×产品生命周期×区域潜力"拆解到代表/医院/季度 → 区域漏斗（覆盖数→有效拜访→观念渗透→处方启动→纯销转化）→ 资源（预算/样品/学术活动）按 ROI 分配 → 达成追踪周/月报 → 过程管理（周会/1on1/QBR 节奏 + 预警阈值，见 sales-coaching-fieldwork.md C6/S2.5）。
 
-### 维S3 专业拜访与学术推广执行 → `references/sales-customer-territory.md`（训练内容见 drug-training T4）
-关键动作：六步法（准备-开场-探询-介绍FAB-处理异议-成交）落到日常拜访节奏 → 科室会策划与执行（议题-讲者-名单-跟进）→ 学术活动合规执行（讲者资质/内容审核）；**拜访技能训练内容归 drug-training T4，本维只出执行动作**。
+### 维S3 专业拜访与学术推广执行 → `references/sales-customer-territory.md`（训练内容见 drug-training T4；DM 协访辅导执行见 `references/sales-coaching-fieldwork.md` C1-C3）
+关键动作：六步法（准备-开场-探询-介绍FAB-处理异议-成交）落到日常拜访节奏 → 科室会策划与执行（议题-讲者-名单-跟进）→ 学术活动合规执行（讲者资质/内容审核）；**拜访技能训练内容归 drug-training T4，本维只出执行动作**；DM 现场协访与 1on1 带教（SBI 反馈）走 sales-coaching-fieldwork.md。
 
 ### 维S4 纯销与商业渠道 → `references/sales-territory-operation.md`
 关键动作：商业流向读取与核对 → 库存水位监控（安全库存/效期）→ 纯销诊断（掉量归因：断货/竞品/观念/渠道）→ 断货预警与商业协同补货 → 与 drug-access（进院/医保）接口保障可及性。
@@ -107,8 +107,8 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 ### 维S6 合规行为红线 → `references/sales-compliance-redlines.md` ⭐
 关键动作：《医药代表管理办法》九大禁止行为逐条落地（禁承担销售任务/禁统方/禁回扣/禁误导疗效等）→ 备案（pharmareps.cpa.org.cn 平台）与医疗机构"三定两有/五定两有"接待 → 学术活动合规（讲者/证据/费用）→ **合规审查与制度归 drug-compliance，本维只出行为管理清单**。
 
-### 维S7 数据驱动与SFE → `references/sales-territory-operation.md`
-关键动作：CRM 客户分级与拜访有效性分析 → 流向数据透视（医院/科室/客户纯销趋势）→ 预警（掉量/断货/合规异常）→ 人效看板（人均产出/覆盖率/活动 ROI）。
+### 维S7 数据驱动与SFE → `references/sales-territory-operation.md`（SFE字典/报表节奏见该文 S7.4-S7.5；DM能力评估/Onboarding见 `references/sales-coaching-fieldwork.md` C4-C5）
+关键动作：CRM 客户分级与拜访有效性分析 → 流向数据透视（医院/科室/客户纯销趋势）→ 预警（掉量/断货/合规异常）→ 人效看板（人均产出/覆盖率/活动 ROI）；口径统一按 SFE 字典(S7.4)，报表节奏按 S7.5，代表能力评估(4维度)走 sales-coaching-fieldwork.md C4。
 
 > 每个维产出前，先核对输入是否齐全（产品/区域/团队/指标/合规）；缺项先列"请补充"，不硬编。
 
@@ -181,3 +181,11 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 | 4 | 指标 | 达成率须标分母定义 | ① 采集模板字段 |
 | 5 | 医学数据 | 引用须标研究名+年份+样本量 | ① drug-medical-postlaunch ② 文献 |
 | 6 | 竞品 | 客观、禁贬低 | ① 说明书/文献 |
+
+## 11. References（知识库索引 · 4 个）
+| 文件 | 覆盖维度 | 内容要点 |
+|---|---|---|
+| `references/sales-customer-territory.md` | S1·S3·S5 | 医院分级、KOL地图、六步法、科室会、POA；含医院分级标准表、KOL/客户矩阵模板 |
+| `references/sales-territory-operation.md` | S2·S4·S7 | 指标拆解、区域漏斗、纯销渠道、SFE；含指标拆解表、POA表、漏斗诊断表、SFE字典与报表节奏 |
+| `references/sales-compliance-redlines.md` | S6 | 九大禁止、备案、接待管理、预警；含合规自检表（三定两有/备案/九禁止勾选） |
+| `references/sales-coaching-fieldwork.md` | S2·S3·S7 现场层 | 协访流程(pre-brief/observation/debrief)、SBI 1on1、能力评估表、DM 90天Onboarding、过程管理节奏 |
