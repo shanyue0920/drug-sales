@@ -2,9 +2,9 @@
 name: drug-sales
 slug: drug-sales
 displayName: 医药行业·院内处方销售执行
-version: 1.1.0
+version: 2.0.0
 author: zhouwei <WeChat: Shanyue0920>
-summary: 院内处方药品销售执行结构化分析与落地。7维覆盖客户与终端管理/区域规划与指标运营/专业拜访与学术推广执行/纯销与商业渠道/POA与学术活动管理/合规行为红线/数据驱动与SFE。严格边界(训练内容归drug-training、编制人效归drug-hr、合规红线与MLR归drug-compliance、医学证据归drug-medical-postlaunch)。引用 drug-base 底座，强制数据校准(🔍/💭)。
+summary: 院内处方药品销售执行结构化分析与落地。7维覆盖客户与终端管理/区域规划与指标运营/专业拜访与学术推广执行/纯销与商业渠道/POA与学术活动管理/合规行为红线/数据驱动与SFE。严格边界(训练内容归drug-training、编制人效归drug-hr、合规红线与MLR归drug-compliance、医学证据归drug-medical-postlaunch)。本 skill 内置知识库，强制数据校准(🔍/💭)。
 license: MIT
 description: >
   当用户需要从"院内处方销售执行"视角分析一支销售团队/一个产品/一个区域时使用。
@@ -12,7 +12,7 @@ description: >
   专业拜访与学术推广执行(六步法落地/科室会/学术活动)、纯销与商业渠道(流向/库存/纯销/断货)、
   POA与学术活动管理(计划-执行-复盘)、合规行为红线(医药代表九大禁止/备案/接待管理)、
   数据驱动与SFE(CRM/流向分析/客户洞察)。
-  引用 drug-base 共享底座，主要复用数据校准规则(🔍/💭)与临床档案框架；
+  本 skill 内置共享底座，主要复用数据校准规则(🔍/💭)与临床档案框架；
   强制数据校准与边界切分——本 Skill 是"业务执行方"，drug-training 是"训练内容方"、drug-hr 是"编制人效方"。
   按使用者水平切换新人(详细+输入清单)或资深(精简+直给结论)深度档位。
   触发语示例：「这个区域怎么拆指标」「医院进院后怎么覆盖」「纯销掉量怎么查」
@@ -20,17 +20,21 @@ description: >
 allowed-tools: WebSearch, WebFetch, Read, Write
 ---
 
+
+> **🔧 自包含声明**：本 skill 已**完全自包含**，可独立运行，无需安装任何其他 skill 或外部共享底座。
+> 内置共享知识存于本 skill 的 `references/`：临床档案框架与校准规则见 `references/foundation.md`；循证三件套见 `references/evidence-levels.md`、`references/drug-classes.md`、`references/market-methodology.md`；专利FTO框架见 `references/foundation.md` §三。
+
 # 医药行业·院内处方销售执行（drug-sales）
 
-从"院内处方销售执行"视角，对一支销售团队/一个产品/一个区域做结构化分析与落地——把指标、客户、活动、纯销、合规拧成可执行的业务动作。引用 drug-base 底座，强制数据校准与边界切分。
+从"院内处方销售执行"视角，对一支销售团队/一个产品/一个区域做结构化分析与落地——把指标、客户、活动、纯销、合规拧成可执行的业务动作。本 skill 内置知识库，强制数据校准与边界切分。
 
-> 本 skill 引用 drug-base 底座。临床档案按 drug-base §2 框架提取；所有数据输出遵守 drug-base §3 数据校准规则。
+> 本 skill 本 skill 内置知识库。临床档案按 本 skill references/foundation.md §2 框架提取；所有数据输出遵守 本 skill references/foundation.md §3 数据校准规则。
 
 ## 1. 概述
 回答"指标怎么拆、客户怎么覆盖、活动怎么排、纯销怎么盯、合规怎么守、数据怎么用"——一个 Skill 扮演"院内销售业务操盘手"，按需调取客户管理/区域运营/拜访执行/纯销渠道/POA/合规/SFE 等专长。
 本质：drug-sales 是**业务执行方**——产出覆盖计划、指标拆解、活动排期、纯销追踪、行为管理动作；**不负责训练内容**（那归 drug-training 的 T4）、**不负责编制与人效模型**（那归 drug-hr）、**不负责合规审查与制度**（那归 drug-compliance）。医学证据由 drug-medical-postlaunch 提供，销售负责转译与传递。
 
-**底座引用**：本 Skill 引用 `drug-base` 共享底座——主要复用其**数据校准规则(🔍/💭)**、references 知识库（循证三件套/药理分类/市场方法论）。临床档案（产品机制/靶点/证据）按 drug-base §2 提取，不重复定义。
+**内置共享知识**：本 Skill 内置共享底座（临床档案/校准规则/循证三件套/专利FTO）——主要复用其**数据校准规则(🔍/💭)**、references 知识库（循证三件套/药理分类/市场方法论）。临床档案（产品机制/靶点/证据）按 本 skill references/foundation.md §2 提取，不重复定义。
 
 ## 2. 两轮工作机制（防遗漏·防编造）
 
@@ -53,7 +57,7 @@ allowed-tools: WebSearch, WebFetch, Read, Write
 
 ### 2.2 第二轮：业务设计编写
 1. 第一轮 ⬜ 项 ≤5 方可进入。
-2. 以锁死事实调用 drug-base 校准规则，按 §3-§5 走完整设计。
+2. 以锁死事实调用 本 skill 内置 校准规则，按 §3-§5 走完整设计。
 3. 内容层不得修改采集层事实；数据结论来自 references/计算。
 4. 引用行业基准须能回溯字段编号。
 
